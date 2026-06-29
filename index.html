@@ -205,6 +205,15 @@
             border-radius: 2px;
         }
 
+        .product-image-real {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border-radius: 2px;
+            display: block;
+        }
+
         .product-name {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
@@ -241,6 +250,13 @@
 
         .gallery-item:hover {
             transform: scale(1.02);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .gallery-placeholder {
@@ -368,7 +384,7 @@
     <section id="about" class="about">
         <h2 class="section-title">About</h2>
         <div class="about-content">
-            <p>Nomadique is a wearable canvas of urban expression. Born between February and September 2025, we explore how minimalist design and artistic inspiration—drawing from the geometric purity of Matisse and the ornamental boldness of Klimt—can reshape identity through clothing.</p>
+            <p>Nomadique is a wearable canvas of urban expression. Born between February and September 2025, we explore how minimalist design and artistic inspiration, drawing from the geometric purity of Matisse and the ornamental boldness of Klimt, can reshape identity through clothing.</p>
             
             <p>Every piece is designed with intention: inspired by the streets, shaped by culture, crafted for those who speak through style. We believe fashion is art. A reflection of self, identity, and raw creativity.</p>
             
@@ -383,15 +399,15 @@
         
         <div class="collection-grid">
             <div class="product-card">
-                <div class="product-image">Image 1</div>
-                <div class="product-name">Hoodie</div>
-                <div class="product-description">Minimalist geometry meets urban boldness. Crafted for those who wear intention.</div>
+                <img src="IMG_0847.jpg" alt="Blue Hoodie" class="product-image-real">
+                <div class="product-name">Blue Hoodie</div>
+                <div class="product-description">Urban expression meets artistic vision. Designed for those who wear intention.</div>
             </div>
 
             <div class="product-card">
-                <div class="product-image">Image 2</div>
-                <div class="product-name">Sweatshirt</div>
-                <div class="product-description">Artistic expression in its purest form. A canvas for self-discovery.</div>
+                <img src="IMG_0846.jpg" alt="Black Hoodie" class="product-image-real">
+                <div class="product-name">Black Hoodie</div>
+                <div class="product-description">Minimalist geometry meets raw creativity. A canvas for self-discovery.</div>
             </div>
         </div>
     </section>
@@ -401,16 +417,16 @@
         <h2 class="section-title">Gallery</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <div class="gallery-placeholder">📸</div>
+                <img src="IMG_0848.jpg" alt="Nomadique lifestyle" class="gallery-image">
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">📸</div>
+                <img src="IMG_0849.jpg" alt="Nomadique lifestyle" class="gallery-image">
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">📸</div>
+                <img src="IMG_7083.jpg" alt="Nomadique lifestyle" class="gallery-image">
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">📸</div>
+                <img src="IMG_9230.jpg" alt="Nomadique lifestyle" class="gallery-image">
             </div>
         </div>
     </section>
