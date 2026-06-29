@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomadique Project - Wearable Art</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0a0a;
+            --primary-blue: #1a3a52;
+            --accent-white: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --text-light: #f5f5f5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--accent-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAV */
+        header {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--primary-blue);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: var(--text-light);
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            letter-spacing: 0.5px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-white);
+            color: var(--primary-dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-white);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent-white);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--accent-white);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* COLLECTION */
+        .collection {
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        .collection h2 {
+            color: var(--text-light);
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--primary-blue);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-white);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0d1f2d 100%);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+
+        .product-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: var(--accent-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+            border-radius: 2px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: rgba(0, 0, 0, 0.15);
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--text-light);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .contact-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .social-link:hover {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            border-top: 1px solid var(--primary-blue);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Nomadique</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Nomadique</h1>
+        <p>Art you wear. Identity you choose.</p>
+        <a href="#about" class="cta-button">Explore</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <p>Nomadique is a wearable canvas of urban expression. Born between February and September 2025, we explore how minimalist design and artistic inspiration—drawing from the geometric purity of Matisse and the ornamental boldness of Klimt—can reshape identity through clothing.</p>
+            
+            <p>Every piece is designed with intention: inspired by the streets, shaped by culture, crafted for those who speak through style. We believe fashion is art. A reflection of self, identity, and raw creativity.</p>
+            
+            <p>At Nomadique, we are redefining what it means to wear fashion. Built for the visionaries, the rebels, and those who embrace authenticity without compromise.</p>
+        </div>
+    </section>
+
+    <!-- COLLECTION -->
+    <section id="collection" class="collection">
+        <h2 class="section-title">The Collection</h2>
+        <p style="text-align: center; margin-bottom: 3rem; opacity: 0.9;">Two silhouettes. One vision.</p>
+        
+        <div class="collection-grid">
+            <div class="product-card">
+                <div class="product-image">Image 1</div>
+                <div class="product-name">Hoodie</div>
+                <div class="product-description">Minimalist geometry meets urban boldness. Crafted for those who wear intention.</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">Image 2</div>
+                <div class="product-name">Sweatshirt</div>
+                <div class="product-description">Artistic expression in its purest form. A canvas for self-discovery.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-placeholder">📸</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">📸</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">📸</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">📸</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <h2>Connect</h2>
+        <div class="contact-content">
+            <p>Join the Nomadique community. Follow, connect, and be part of the movement.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/pietrocappellaro" class="social-link" target="_blank">
+                    LinkedIn (Pietro)
+                </a>
+                <a href="https://www.linkedin.com/company/nomadique%C2%AEproject/about/?viewAsMember=true" class="social-link" target="_blank">
+                    LinkedIn (Company)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Nomadique Project. All rights reserved. | Designed with intention.</p>
+    </footer>
+</body>
+</html>
